@@ -36,13 +36,14 @@ https://github.com/jbruchon/zeromerge
 - Refresh directories in alphabetical order (possibly with recursion)
 - Be able to dedupe, merge, etc. over a network, with offline hash DB, etc.
 - Break hard links into separate files
-- Zeromerge left/right/separate with or without file length/data difference checking
+- Zeromerge left/right/separate with/without file length/data difference check
 - Partial duplicate "matching" with zeromerge for matches
 - Trim excess allocations like XFS preallocations
 - Recursively collect file statistics and sort the output
 - Merge directories (copy recurseively, skipping or overwriting existing files)
-- If a subdirectory has ONE file inside, move the file to its parent and delete the subdir
+- If a subdirectory contains ONE file, move file to its parent & delete subdir
 - Read the list of files in various archive file formats (zip, 7z, tar, etc.)
+- Files with same name but different extensions: delete largest file(s)
 
 
 Contact information
