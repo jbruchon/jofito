@@ -27,6 +27,15 @@
  #include <io.h>
 #endif
 
+#define TOK_NULL     0x00
+#define TOK_NUM      0x01
+#define TOK_VAR      0x02
+#define TOK_OP       0x03
+#define TOK_LPAREN   0x04
+#define TOK_RPAREN   0x05
+#define TOK_EQUAL    0x06
+#define TOK_COMPARE  0x07
+
 #define MAX_LINE 512
 
 /* This holds the tokenized version of the code */
@@ -49,8 +58,11 @@ void do_help(void)
 }
 
 
-int interpret_line(char *line, int len)
+int interpret_line(const char * const line, const int len)
 {
+	char * const cur;
+
+	fprintf(stderr, "interpret_line: [%d] '%s'\n", len, line);
 	return 0;
 }
 
@@ -72,7 +84,7 @@ int main(int argc, char **argv)
 			fprintf(stderr, "Error reading stdin\n");
 			exit(EXIT_FAILURE);
 		}
-		len = strlen(line);
+		len = (int)strlen(line);
 		/* Process line */
 		if (line[len-1] == '\n') {
 			len--;
