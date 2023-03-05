@@ -33,7 +33,12 @@ void show_version(void)
 	return;
 }
 
+
+#ifdef UNICODE
+int wmain(int argc, wchar_t **wargv)
+#else
 int main(int argc, char **argv)
+#endif
 {
 	printf("Nothing is here yet!\n");
 	show_version();
