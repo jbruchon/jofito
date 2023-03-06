@@ -24,7 +24,7 @@
 /jofito-*-*/
 /jofito-*-*.zip
 /*.pkg.tar.*
-test_temp
+testscript.txt
 output.log
 
 #

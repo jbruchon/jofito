@@ -123,7 +123,7 @@ CFLAGS += $(COMPILER_OPTIONS) $(CFLAGS_EXTRA)
 INSTALL_PROGRAM = $(INSTALL) -m 0755
 INSTALL_DATA    = $(INSTALL) -m 0644
 
-OBJS += jofito.o
+OBJS += jofito.o oom.o tokenizer.o
 
 all: $(PROGRAM_NAME)
 

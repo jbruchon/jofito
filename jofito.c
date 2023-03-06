@@ -14,8 +14,12 @@
 #include <fcntl.h>
 #include <limits.h>
 #include "jofito.h"
+#include "tokenizer.h"
 #include "oom.h"
 #include "version.h"
+
+/****************************************************************************/
+// Definitions
 
 /* Detect Windows and modify as needed */
 #if defined _WIN32 || defined __CYGWIN__
@@ -27,20 +31,11 @@
  #include <io.h>
 #endif
 
-#define TOK_NULL     0x00
-#define TOK_NUM      0x01
-#define TOK_VAR      0x02
-#define TOK_OP       0x03
-#define TOK_LPAREN   0x04
-#define TOK_RPAREN   0x05
-#define TOK_EQUAL    0x06
-#define TOK_COMPARE  0x07
-
-#define MAX_LINE 512
-
 /* This holds the tokenized version of the code */
 char *tok_prog = NULL;
 
+/****************************************************************************/
+//Functions
 
 void show_version(void)
 {
@@ -57,14 +52,6 @@ void do_help(void)
 	return;
 }
 
-
-int interpret_line(const char * const line, const int len)
-{
-	char * const cur;
-
-	fprintf(stderr, "interpret_line: [%d] '%s'\n", len, line);
-	return 0;
-}
 
 #ifdef UNICODE
 int wmain(int argc, wchar_t **wargv)
@@ -93,7 +80,7 @@ int main(int argc, char **argv)
 		if (len == 0) continue;
 		if (!strncmp(line, "quit", MAX_LINE) || !strncmp(line, "exit", MAX_LINE)) break;
 		else if (!strncmp(line, "help", MAX_LINE)) do_help();
-		else interpret_line(line, len);
+		else tokenize(line, len);
 	}
 	exit(EXIT_SUCCESS);
 }

@@ -108,6 +108,10 @@ extern uint_fast32_t flags, a_flags;
 #define PATHBUF_SIZE 4096
 #endif
 
+#ifndef MAX_LINE
+#define MAX_LINE 1024
+#endif
+
 #ifdef __cplusplus
 }
 #endif
