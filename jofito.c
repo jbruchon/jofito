@@ -59,7 +59,7 @@ int wmain(int argc, wchar_t **wargv)
 int main(int argc, char **argv)
 #endif
 {
-	int len = 0;
+	int len = 0, lineno = 0;
 	char line[MAX_LINE];
 
 	line[MAX_LINE - 1] = '\0';
@@ -71,6 +71,7 @@ int main(int argc, char **argv)
 			fprintf(stderr, "Error reading stdin\n");
 			exit(EXIT_FAILURE);
 		}
+		lineno++;
 		len = (int)strlen(line);
 		/* Process line */
 		if (line[len-1] == '\n') {
@@ -80,7 +81,7 @@ int main(int argc, char **argv)
 		if (len == 0) continue;
 		if (!strncmp(line, "quit", MAX_LINE) || !strncmp(line, "exit", MAX_LINE)) break;
 		else if (!strncmp(line, "help", MAX_LINE)) do_help();
-		else tokenize(line, len);
+		else tokenize(line, len, lineno);
 	}
 	exit(EXIT_SUCCESS);
 }
